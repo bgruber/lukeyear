@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<atom:link href="http://iheardata.appspot.com/lukeyear/rss.xml"
+			rel="self" type="application/rss+xml" />
+		<title>A Year in mp3s</title>
+		<link>{{ sourceUrl }}</link>
+		<description>My friends are always saying that I don't make enough music any more. So I've decided to spend my 34th year trying a little experiment. A new piece a day. Every day. Just an experiment. Enjoy.</description>
+		<pubDate>{{ changedate }}</pubDate>
+		<lastBuildDate>{{ changedate }}</lastBuildDate>
+		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+		<ttl>60</ttl>
+		{% for item in items %}
+		<item>
+			<title>{{ item.title }}</title>
+			<link>{{ item.link }}</link>
+			<description>{{ item.description }}</description>
+			<pubDate>{{ item.pubDateString }}</pubDate>
+			<guid>{{ item.guid }}</guid>
+			<enclosure url="{{ item.link }}" length="{{ item.length }}" type="{{ item.mimeType }}" />
+		</item>
+		{% endfor %}
+	</channel>
+</rss>

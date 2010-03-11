@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>A Year in mp3s</title>
+	<link href="{{ sourceUrl }}" rel="alternate" />
+	<link href="http://iheardata.appspot.com/lukeyear/atom" rel="self" />
+	<updated>{{ changedate }}</updated>
+	<author>
+		<name>r. luke dubois</name>
+	</author>
+	<id>http://iheardata.appspot.com/lukeyear/atom</id>
+	{% for item in items %}
+	<entry>
+		<title>{{ item.title }}</title>
+		<link href="{{ item.link }}" />
+		<link href="{{ item.link }}" rel="enclosure" length="{{ item.length }}" type="{{ item.mimeType }}" />
+		<id>{{ item.guid }}</id>
+		<updated>{{ item.pubDateString }}</updated>
+		<summary>{{ item.description }}</summary>
+	</entry>
+	{% endfor %}
+</feed>
