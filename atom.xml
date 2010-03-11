@@ -2,12 +2,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>A Year in mp3s</title>
 	<link href="{{ sourceUrl }}" rel="alternate" />
-	<link href="http://iheardata.appspot.com/lukeyear/atom" rel="self" />
+	<link href="http://lukeyear.iheardata.com/feeds/atom" rel="self" />
 	<updated>{{ changedate }}</updated>
 	<author>
 		<name>r. luke dubois</name>
 	</author>
-	<id>http://iheardata.appspot.com/lukeyear/atom</id>
+	<id>http://lukeyear.iheardata.com/feeds/atom</id>
 	{% for item in items %}
 	<entry>
 		<title>{{ item.title }}</title>
