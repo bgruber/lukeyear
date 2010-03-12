@@ -39,4 +39,4 @@ def makeItem(tup, response):
                 guid=guid)
 
 def makeGuid(mp3path):
-    return "tag:iheardata.com," + ":/lukeyear/" + HOSTNAME + mp3path
+    return "tag:lukeyear.iheardata.com," + "2010-03-12" + ":" + HOSTNAME + mp3path
