@@ -3,6 +3,7 @@ from datetime import datetime
 from google.appengine.ext import db
 from models import Item, ChangeDate, CHANGE_DATE_KEY
 from util import cachingFetch, cachingFetches
+from xml.sax.saxutils import escape
 import feeds
 import itertools
 import re
@@ -31,7 +32,7 @@ def makeItem(tup, response):
     return Item(key_name=guid,
                 title=tup[0],
                 link=mp3url,
-                description=tup[2].rstrip() + tup[3].rstrip(),
+                description=escape(tup[2].rstrip() + tup[3].rstrip()),
                 pubDate=datetime.strptime(response.getheader('last-modified'),
                                           "%a, %d %b %Y %H:%M:%S %Z"),
                 length=int(response.getheader('content-length')),

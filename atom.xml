@@ -15,7 +15,7 @@
 		<link href="{{ item.link }}" rel="enclosure" length="{{ item.length }}" type="{{ item.mimeType }}" />
 		<id>{{ item.guid }}</id>
 		<updated>{{ item.pubDateString }}</updated>
-		<summary>{{ item.description }}</summary>
+		<summary type="html">{{ item.description }}</summary>
 	</entry>
 	{% endfor %}
 </feed>

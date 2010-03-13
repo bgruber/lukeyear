@@ -36,7 +36,7 @@ def genatom():
 
 def gettemplateparams():
     params = {}
-    params['SOURCE_URL'] = SOURCE_URL
+    params['sourceUrl'] = SOURCE_URL
     params['items'] = Item.all().order("-pubDate").fetch(365)
     return params
 
