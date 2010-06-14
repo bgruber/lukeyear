@@ -12,9 +12,12 @@ LINE_PATTERN = r'\s*(\d\d\d):\s*<a href="(.*mp3)".*?>(.*)</a>(.*)<br>'
 
 def updateStore():
     page = cachingFetch(SOURCE_URL)
-    ChangeDate(key_name=CHANGE_DATE_KEY,
-               date=datetime.strptime(page.getheader('last-modified'),
-                                        "%a, %d %b %Y %H:%M:%S %Z")).put()
+    lastmodified = page.getheader('last-modified')
+    if lastmodified != None:
+        date = datetime.strptime(lastmodified, "%a, %d %b %Y %H:%M:%S %Z")
+    else:
+        date = datetime.now()
+    ChangeDate(key_name=CHANGE_DATE_KEY, date=date).put()
     tuples = (m.groups() for m in (re.match(LINE_PATTERN, line) for line in
                                    page.readlines()) if m != None)
     urls = dict(("http://" + HOSTNAME + BASE_PATH + tup[1], tup)
