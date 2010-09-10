@@ -1,4 +1,1 @@
 cron:
-- description: update 
-  url: /admin/update
-  schedule: every 6 hours
